@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form - BOMAK</title>
+    <link rel="stylesheet" href="css/admission_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+</head>
+<body>
+
+<section class="header">
+    <nav>
+        <a href="#" class="logo"><i class="fas fa-book"></i>Bomak</a>
+
+        <div class="nav-links" id="navLinks">
+            <span class="icon" onclick="hidemenu()">&#10005;</span>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Admission_page.html">Admission</a></li>
+                <li><a href="index.html#course_call">Course</a></li>
+                <li><a href="fees_page.html">Fees</a></li>
+                <li><a href="Contact_page.html">Contact</a></li>
+                <li><a href="registration .html">registration </a></li>
+                <li><a href="profile.html">profile</a></li>
+
+            </ul>
+        </div>
+        <span class="icon" onclick="showmenu()">&#9776;</span>
+    </nav>
+
+    <div class="wrapper">
+        <div class="r_form_wrap">
+            <div class="title">
+                <p>Registration Form</p>
+            </div>
+            <div class="r_form">
+                <form method="post" onsubmit="submitForm(); return false;">
+                    <div class="input_wrap">
+                        <label for="fullname">Full Name</label>
+                        <div class="input_item">
+                            <i class="fa fa-user" id="icon"></i>
+                            <input type="text" name="fullname" class="input" id="fullname" placeholder="Enter your full name" required>
+                        </div>
+                    </div>
+                    <div class="input_wrap">
+                        <label for="studentId">Student ID</label>
+                        <div class="input_item">
+                            <i class="fa fa-id-card" id="icon"></i>
+                            <input type="text" name="studentId" class="input" id="studentId" placeholder="Enter your student ID" required>
+                        </div>
+                    </div>
+                    <div class="input_wrap">
+                        <label for="course">Select Courses</label>
+                        <div class="input_item">
+                            <i class="fa fa-caret-square-o-down" aria-hidden="true" id="icon"></i>
+                            <select id="course" name="course" class="input" required>
+                                <option value="math">Math</option>
+                                <option value="arabic">Arabic</option>
+                                <option value="english">English</option>
+                                <option value="computer">Computer Science</option>
+                                <option value="drawing">Drawing</option>
+                                <option value="coding">Coding</option>
+                            </select>
+                            <button type="button" onclick="addCourse()">
+                                <i class="fa fa-plus" id="addCourseIcon"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="input_wrap">
+                        <label for="selectedCourses">Selected Courses</label>
+                        <div class="input_item">
+                            <select id="selectedCourses" multiple class="input">
+                                <!-- Selected Courses will be dynamically added here -->
+                            </select>
+                            <button type="button" id="dropCourseBtn" onclick="dropCourse()">
+                                Drop Selected
+                            </button>
+                        </div>
+                    </div>
+                    <div class="input_wrap">
+                        <button type="submit" class="button">Submit</button>
+                        <button type="button" class="clear_ad" onclick="clearForm()">Clear</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script>
+    let selectedCourses = [];
+
+    function addCourse() {
+        const courseSelect = document.getElementById('course');
+        const selectedCoursesSelect = document.getElementById('selectedCourses');
+
+        const selectedCourse = courseSelect.options[courseSelect.selectedIndex].text;
+        selectedCourses.push(selectedCourse);
+
+        updateSelectedCourses(selectedCoursesSelect);
+    }
+
+    function dropCourse() {
+        const selectedCoursesSelect = document.getElementById('selectedCourses');
+        selectedCourses.splice(selectedCoursesSelect.selectedIndex, 1);
+        updateSelectedCourses(selectedCoursesSelect);
+    }
+
+    function updateSelectedCourses(select) {
+        select.innerHTML = "";
+        for (const course of selectedCourses) {
+            const option = document.createElement("option");
+            option.text = course;
+            select.add(option);
+        }
+    }
+
+    function submitForm() {
+        const fullName = document.getElementById('fullname').value;
+        const studentId = document.getElementById('studentId').value;
+        const selectedCoursesText = selectedCourses.join(', ');
+
+        alert(`Form submitted successfully!\nFull Name: ${fullName}\nStudent ID: ${studentId}\nSelected Courses: ${selectedCoursesText}`);
+        clearForm();
+    }
+
+    function clearForm() {
+        document.getElementById('fullname').value = "";
+        document.getElementById('studentId').value = "";
+        selectedCourses = [];
+        updateSelectedCourses(document.getElementById('selectedCourses'));
+    }
+</script>
+
+</body>
+</html>
