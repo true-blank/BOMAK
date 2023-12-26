@@ -1,5 +1,1 @@
-Karim mohamed (GitHub)
-kerolous fareed(website)
-abdelrahman hesham(report)
-mohamed tarek(report)
-omar gamal(presentation)
+Bomak represents a paradigm shift in student empowerment. This comprehensive platform revolutionizes your learning experience, fostering organization, collaboration, and academic excellence. Seize the reins of your educational journey.
