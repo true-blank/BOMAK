@@ -1,0 +1,51 @@
+/* Add your existing CSS styles here */
+
+.input_wrap {
+    margin-bottom: 20px;
+}
+
+.input_item {
+    position: relative;
+}
+
+.input_item i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+}
+
+.input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    padding-left: 40px;
+}
+
+.input_radio {
+    display: flex;
+}
+
+.input_radio_item {
+    margin-right: 20px;
+}
+
+.button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.clear_ad {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* Add your other styles as needed */

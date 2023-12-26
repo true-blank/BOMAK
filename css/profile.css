@@ -1,0 +1,49 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0; /* Specify a value for margin */
+    padding: 0; /* Specify a value for padding */
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.profile-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 400px;
+    text-align: center;
+    padding: 30px;
+    margin: auto; /* Add this line to center the profile card */
+}
+
+.profile-image {
+    border-radius: 6;
+    width: 150px; /* Adjust this size as needed */
+    height: 150px; /* Adjust this size as needed */
+    object-fit: cover;
+    display: block;
+    margin: auto;
+}
+
+
+.profile-name {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.profile-role {
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.profile-description {
+    color: #777;
+    font-size: 1.1em;
+    line-height: 1.4;
+}
